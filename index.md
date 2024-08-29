@@ -1,8 +1,7 @@
 ---
 layout: base
-title: Student Home 
+title: Anusha Khobare's Home Page 
 description: Home Page
 hide: true
 ---
-
 My journey starts here.
