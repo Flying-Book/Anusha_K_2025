@@ -3,6 +3,7 @@ layout: post
 title: Cookie Clicker
 description: Cookie Clicker Game
 permalink: /cookie
+menu: nav/sprint_1.html
 comments: true
 ---
 <html lang="en">
