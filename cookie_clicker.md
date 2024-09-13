@@ -10,187 +10,81 @@ comments: true
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookie Clicker</title>
     <style>
         body {
-            background-image: url('https://cdn.vectorstock.com/i/500p/57/28/bakery-seamless-background-vector-27135728.jpg');
-            background-size: cover;
-            background-position: center;
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            height: 100vh;
-            overflow: hidden; /* Prevent scrolling */
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.5);
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 1s ease, background-color 1s ease;
-        }
-
-        .show-overlay {
-            opacity: 1;
-        }
-
-        .container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            z-index: 1;
+            font-family: Arial, sans-serif;
         }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #f57c00;
-        }
-
         #cookie-container {
-            margin: 20px 0;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
         }
-
         #cookie {
-            width: 150px;
+            width: 200px;
             cursor: pointer;
-            transition: transform 0.1s;
         }
-
-        #cookie:active {
-            transform: scale(0.95);
+        p {
+            font-size: 1.2em;
         }
-
-        #counter {
-            font-size: 1.5rem;
-            color: #f57c00;
-            margin: 20px 0;
-        }
-
-        .upgrade-btn {
-            background-color: #f57c00;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 5px;
-            margin: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .upgrade-btn:hover {
-            background-color: #d65a00;
-        }
-
-        .upgrade-btn:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-
-        #congratulations {
-            font-size: 1.5rem;
-            color: #ff5722;
-            display: none;
+        #shop {
             margin-top: 20px;
+        }
+        #shop p {
+            font-size: 1.2em;
+        }
+        #shop button {
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="overlay" id="overlay"></div>
-    <div class="container">
-        <h1>Cookie Clicker</h1>
-        <div id="cookie-container">
-            <img class="img-responsive" id="cookie" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Cookie.png" alt="Cookie">
-        </div>
-        <p id="counter">Cookies: 0</p>
-        <button id="upgrade-btn-1" class="upgrade-btn">Upgrade 1 (Cost: 50)</button>
-        <button id="upgrade-btn-2" class="upgrade-btn">Upgrade 2 (Cost: 100)</button>
-        <button id="upgrade-btn-3" class="upgrade-btn">Upgrade 3 (Cost: 200)</button>
-        <p id="congratulations">Congratulations! You've reached a milestone!</p>
+    <div id="cookie-container">
+        <img id="cookie" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Cookie.png" alt="Cookie">
     </div>
+    <p>Cookies: <span id="cookie-count">0</span></p>
+    <p>Workers: <span id="worker-count">0</span></p>
+    <p>Cookies left: <span id="cookies-left">0</span></p>
+    <div id="shop">
+        <p>Cost of 1 Worker: 5 Cookies</p>
+        <button id="buy-worker">Buy Worker</button>
+    </div>
+
     <script>
-        let cookies = 0;
-        let cookiesPerClick = 1;
+        document.addEventListener('DOMContentLoaded', () => {
+            const cookieImage = document.getElementById('cookie');
+            const cookieCountDisplay = document.getElementById('cookie-count');
+            const workerCountDisplay = document.getElementById('worker-count');
+            const cookiesLeftDisplay = document.getElementById('cookies-left');
+            const buyWorkerButton = document.getElementById('buy-worker');
+            const workerCost = 5;
 
-        const cookie = document.getElementById('cookie');
-        const counter = document.getElementById('counter');
-        const upgradeBtn1 = document.getElementById('upgrade-btn-1');
-        const upgradeBtn2 = document.getElementById('upgrade-btn-2');
-        const upgradeBtn3 = document.getElementById('upgrade-btn-3');
-        const overlay = document.getElementById('overlay');
-        const congratulations = document.getElementById('congratulations');
+            let cookieCount = 0;
+            let workers = 0;
+            let cookiesLeft = 0;
+            let baseScore = 1;
 
-        cookie.addEventListener('click', () => {
-            cookies += cookiesPerClick;
-            counter.textContent = `Cookies: ${cookies}`;
-            checkUpgrades();
-            triggerEffect();
+            cookieImage.addEventListener('click', () => {
+                cookieCount += baseScore;
+                cookieCountDisplay.textContent = cookieCount;
+            });
+
+            buyWorkerButton.addEventListener('click', () => {
+                if (cookieCount >= workerCost) {
+                    cookieCount -= workerCost;
+                    workers += 1;
+                    baseScore = Math.pow(2, workers); // Each worker doubles the score
+                    cookieCountDisplay.textContent = cookieCount;
+                    workerCountDisplay.textContent = workers;
+                    cookiesLeftDisplay.textContent = cookieCount;
+                } else {
+                    alert('Not enough cookies!');
+                }
+            });
+            
+            // Initialize display
+            cookiesLeftDisplay.textContent = cookieCount;
         });
-
-        upgradeBtn1.addEventListener('click', () => {
-            if (cookies >= 50) {
-                cookies -= 50;
-                cookiesPerClick++;
-                counter.textContent = `Cookies: ${cookies}`;
-                checkUpgrades();
-            }
-        });
-
-        upgradeBtn2.addEventListener('click', () => {
-            if (cookies >= 100) {
-                cookies -= 100;
-                cookiesPerClick += 2;
-                counter.textContent = `Cookies: ${cookies}`;
-                checkUpgrades();
-            }
-        });
-
-        upgradeBtn3.addEventListener('click', () => {
-            if (cookies >= 200) {
-                cookies -= 200;
-                cookiesPerClick += 5;
-                counter.textContent = `Cookies: ${cookies}`;
-                checkUpgrades();
-            }
-        });
-
-        function checkUpgrades() {
-            upgradeBtn1.disabled = cookies < 50;
-            upgradeBtn2.disabled = cookies < 100;
-            upgradeBtn3.disabled = cookies < 200;
-        }
-
-        function triggerEffect() {
-            if (cookies >= 200) {
-                overlay.style.backgroundColor = 'rgba(0, 0, 255, 0.5)';
-                congratulations.style.display = 'block';
-            } else if (cookies >= 100) {
-                overlay.style.backgroundColor = 'rgba(0, 255, 0, 0.5)';
-                congratulations.style.display = 'none';
-            } else if (cookies >= 50) {
-                overlay.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
-                congratulations.style.display = 'none';
-            } else {
-                overlay.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
-                congratulations.style.display = 'none';
-            }
-
-            overlay.classList.add('show-overlay');
-            setTimeout(() => {
-                overlay.classList.remove('show-overlay');
-            }, 1000); // Effect lasts 1 second
-        }
     </script>
 </body>
 </html>

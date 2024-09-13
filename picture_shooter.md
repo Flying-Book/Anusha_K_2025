@@ -15,7 +15,7 @@ comments: true
         body {
             margin: 0;
             padding: 0;
-            display: flex;
+            /* display: flex; */
             justify-content: center;
             align-items: center;
             background-color: #f0f0f0;
@@ -41,13 +41,6 @@ comments: true
             height: 100%;
             background-color: red;
             width: 100%;
-        }
-        .paint-splotch {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 1;
-            transition: opacity 0.5s ease;
         }
     </style>
 </head>
@@ -82,9 +75,7 @@ comments: true
                 canvas.width = img.width;
                 canvas.height = img.height;
                 ctx.drawImage(img, 0, 0);
-                paintColor = levels[level].color; // Set paint color for this level
                 updateHealth(100); // Reset health for each level
-                createRandomSplotches(); // Create splotches for the current level
             };
         }
 
@@ -97,39 +88,13 @@ comments: true
             }
         }
 
-        function createRandomSplotches() {
-            // Clear existing splotches
-            splotches.forEach(splotch => splotch.remove());
-            splotches.length = 0;
-
-            // Define number of splotches and their size
-            const numSplotches = 10;
-            const splotchSize = 30;
-
-            for (let i = 0; i < numSplotches; i++) {
-                const splotch = document.createElement('div');
-                splotch.className = 'paint-splotch';
-                splotch.style.backgroundColor = paintColor;
-                splotch.style.width = `${splotchSize}px`;
-                splotch.style.height = `${splotchSize}px`;
-
-                // Randomly position the splotch within the canvas
-                const x = Math.random() * (canvas.width - splotchSize);
-                const y = Math.random() * (canvas.height - splotchSize);
-                splotch.style.left = `${x}px`;
-                splotch.style.top = `${y}px`;
-
-                document.body.appendChild(splotch);
-                splotches.push(splotch);
-            }
-        }
 
         function nextLevel() {
             if (currentLevel < levels.length - 1) {
                 currentLevel++;
                 loadLevel(currentLevel);
             } else {
-                alert('Congratulations! You have completed all levels and restored all the paintings.');
+                alert('Congratulations! You have completed all levels.');
             }
         }
 
