@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Tool Hacks
-description: Tools and Software Development 
-comments: True
-permalink:/tool_hacks
+categories: [Tools]
+description: Useful tools for development
+permalink: /tools/hacks
 ---
 # Version Control and Deployment
 
