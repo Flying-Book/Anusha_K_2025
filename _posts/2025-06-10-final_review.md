@@ -19,7 +19,8 @@ Began as a simple fitness tracker and evolved into a comprehensive health tracki
 - **Technologies Used**: JavaScript, HTML, CSS, Local Storage, D3.js, SQLite, Python
 
 **Links**  
-[Backend Repository](#) | [Frontend Link](#)
+- [Backend Repository](#) | [Frontend Link](#)
+- [Live Demo](https://drive.google.com/file/d/1A7YR4u8Nopru2Quz8uyi0zctGvY-rO33/view?usp=drive_link)
 
 ---
 
@@ -33,7 +34,8 @@ Built a calorie burn prediction tool using regression modeling, first prototyped
 - **Technologies Used**: Python, Jupyter Notebooks, Seaborn, Pandas, Scikit-learn, SQLite, Flask
 
 **Links**  
-[Backend Repository](#) | [Frontend Repository](#)
+- [Backend Repository](#) | [Frontend Repository](#)
+- [Live Demo](https://drive.google.com/file/d/1A7YR4u8Nopru2Quz8uyi0zctGvY-rO33/view?usp=drive_link)
 
 ---
 
@@ -63,14 +65,24 @@ Designed a productivity tool that connects Slack and Google Calendar to intellig
 
 **Links**  
 [Live Demo](https://drive.google.com/file/d/1XHiPiy-XjSQXlRQPiVDTh-Ytk4RIQ11P/view?usp=drive_link)
-
-
+---
+### Certificates and NFTs (Unique Traits)
+**Certificates**
+- Basic Java Proficiency -> AP Test Java
+- Basic Spring Java Proficiency -> Spring Java Structure
+- Basic SQLite DB Storage + Manipulation (CRUD)
+- Basic Frontend Development (HTML/CSS/JS)
+**NFTs**
+- Basic ngrok proficiency (secure tunneling to localhost)
+- Basic Slack API Proficiency 
+- Slack Bot Proficiency
+- Basic fullcalendar.js  Proficiency 
+---
 ## Homework
-[Homework List](https://flying-book.github.io/Anusha_K_2025/blogs/)
-[Homework Spreadsheet](https://docs.google.com/spreadsheets/d/1PTSIDKf5L2N8nXuge9e4IT6INMtfLVtFDDLgv_Z1ysg/edit?gid=0#gid=0)
-
-Note: I taught Insertion and Selection
-**Average Homework Grade**: 0.89
+- [Homework List](https://flying-book.github.io/Anusha_K_2025/blogs/)
+- [Homework Spreadsheet](https://docs.google.com/spreadsheets/d/1PTSIDKf5L2N8nXuge9e4IT6INMtfLVtFDDLgv_Z1ysg/edit?gid=0#gid=0)
+- Note: I taught Insertion and Selection
+- **Average Homework Grade**: 0.89
 
 ## Showcasing Our Work: From HP Expo to N@tM June 2025
 
@@ -96,17 +108,8 @@ Suggestions:
 - Integrate Gemini AI to help parse more casual or unstructured messages into calendar events.
 - Expand functionality to other platforms like Discord or even email clients, making Slack-Calendar more universal.
 
-![Image](https://github.com/user-attachments/assets/5fbc82ee-ced9-4125-8769-790b60b04375)
-### N@tM June 2025
-**Loved:**
-- The intuitive interface
-- rich formatting ability
-
-**Suggestions:**
-- Integrate Gemini AI to help parse more casual or unstructured messages into calendar events.
-- Expand functionality to other platforms like Discord or even email clients, making Slack-Calendar more universal.
-
-![Image](https://github.com/user-attachments/assets/5fbc82ee-ced9-4125-8769-790b60b04375)
+![Image](![Image](https://github.com/user-attachments/assets/3050b456-f28b-4b8a-8847-3a48d349e119))
+[Linked-In Post](https://www.linkedin.com/feed/update/urn:li:activity:7336587383456370688/)
 
 ### Past N@tM: Inspiration & Growth
 Earlier N@tM events were instrumental in shaping our project. Key takeaways and feedback from these past showings inspired us to:
